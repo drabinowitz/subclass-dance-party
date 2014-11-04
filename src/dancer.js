@@ -34,3 +34,9 @@ Dancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.lineUp = function(top){
+  this.$node.addClass('dancer-lineup');
+  this.setPosition(top, 0);
+  this.$node.removeClass('dancer-lineup');
+}
