@@ -38,3 +38,6 @@ body, a:link, a:visited, a:active{
   border:20px solid blue;
   background:blue;
 }
+.shrinky-dancer{
+  transition: background 2s, border 2s;
+}

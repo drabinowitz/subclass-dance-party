@@ -44,5 +44,5 @@ Dancer.prototype.lineUp = function(top){
 }
 
 Dancer.prototype.getDistance = function(top, left){
-  return Math.sqrt((this.top - top)^2 + (this.left - left)^2);
+  return Math.sqrt(Math.pow((this.top - top), 2) + Math.pow((this.left - left), 2));
 }

@@ -1,8 +1,8 @@
 var BouncyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
   this.$node.addClass('bouncy-dancer');
+  this.closest = [];
   for(var i = 0; i < window.dancers.length; i++){
-    this.closest = [];
     var top = window.dancers[i].top;
     var left = window.dancers[i].left;
     var distance = this.getDistance(top,left);
