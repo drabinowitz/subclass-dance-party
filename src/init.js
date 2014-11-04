@@ -23,8 +23,8 @@ $(document).ready(function(){
     // make a dancer with a random position
 
     var dancer = new DancerConstructor(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      Math.min($('body').height()-50, Math.max(50, $("body").height() * Math.random())),
+      Math.min($('body').width()-50, Math.max(50, $("body").width() * Math.random())),
       Math.random() * 1000
     );
 
