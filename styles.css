@@ -1,5 +1,6 @@
   body, html{
   height:100%;
+  width:100%;
 }
 body{
   margin: 0px;
@@ -20,11 +21,31 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
+.dance-floor{
+  width: 100%;
+  height: 50%;
+  border: none;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+.dance-floor.df1{
+ background: purple; 
+}
+.dance-floor.df2{
+ background: green; 
+}
 .dancer{
   border:20px solid red;
   border-radius:20px;
   position:absolute;
   background:red;
+}
+.df1 .dancer{
+  box-shadow: 10px 10px 5px blue;
+}
+.df2 .dancer{
+  box-shadow: -10px -10px 5px pink;
 }
 .bouncy-dancer{
   border: none;

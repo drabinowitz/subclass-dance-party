@@ -1,8 +1,9 @@
 $(document).ready(function(){
+  window.dancefloor = '.df1';
   window.dancers = [];
   $(".lineupDancerButton").on("click", function(event){
     for(var i = 0; i < window.dancers.length; i++){
-      window.dancers[i].lineUp(i * 70);
+      window.dancers[i].lineUp('0', i * 70);
     }
   });
   $(".addDancerButton").on("click", function(event){
@@ -27,14 +28,20 @@ $(document).ready(function(){
     // make a dancer with a random position
 
     var dancer = new DancerConstructor(
-      Math.min($('body').height()-100, Math.max(100, $("body").height() * Math.random())),
-      Math.min($('body').width()-100, Math.max(100, $("body").width() * Math.random())),
-      Math.random() * 1000
+      Math.min($(window.dancefloor).height()-100, Math.max(100, $(window.dancefloor).height() * Math.random())),
+      Math.min($(window.dancefloor).width()-100, Math.max(100, $(window.dancefloor).width() * Math.random())),
+      Math.random() * 1000,
+      window.dancefloor
     );
 
     window.dancers.push(dancer);
 
-    $('body').append(dancer.$node);
+    $(window.dancefloor).append(dancer.$node);
+    if(window.dancefloor === '.df1'){
+      window.dancefloor = '.df2';
+    }else{
+      window.dancefloor = '.df1';
+    }
   });
   
   $("body").on("mouseover", '.blinky-dancer, .shrinky-dancer',function(event){

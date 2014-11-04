@@ -1,12 +1,12 @@
-var BouncyDancer = function(top, left, timeBetweenSteps){
-  Dancer.call(this, top, left, timeBetweenSteps);
+var BouncyDancer = function(top, left, timeBetweenSteps, dancefloor){
+  Dancer.call(this, top, left, timeBetweenSteps, dancefloor);
   this.$node.addClass('bouncy-dancer');
   this.closest = [];
   for(var i = 0; i < window.dancers.length; i++){
     var top = window.dancers[i].top;
     var left = window.dancers[i].left;
     var distance = this.getDistance(top,left);
-    if(this.closest.length !== 3 || distance < this.closest[0]){
+    if((this.closest.length !== 3 || distance < this.closest[0]) && this.dancefloor === window.dancers[i].dancefloor){
       //closest is an array of the closest node = [distanceToNode, top abs pos, left abs pos]
       this.closest = [distance, top, left];
     }
