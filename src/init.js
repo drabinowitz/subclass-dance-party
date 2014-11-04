@@ -1,6 +1,10 @@
 $(document).ready(function(){
   window.dancers = [];
-
+  $(".lineupDancerButton").on("click", function(event){
+    for(var i = 0; i < window.dancers.length; i++){
+      window.dancers[i].lineUp(i * 20);
+    }
+  });
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
