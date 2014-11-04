@@ -1,15 +1,14 @@
 var BouncyDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node = $('<span class="bouncy-dancer"></span>');
-  this.setPosition(top, left);
+  this.$node.addClass('bouncy-dancer');
   for(var i = 0; i < window.dancers.length; i++){
-    this.closest = []; 
-    var top = window.dancers[i].css('top');
-    top = +top.substring(0,top.length - 2);
-    var left = window.dancers[i].css('left');
-    left = +left.substring(0,left.length - 2);
-    if(this.getDistance(top,left) < closest[0]){
-      this.closest = [this.getDistance(top, left), top, left];
+    this.closest = [];
+    var top = window.dancers[i].top;
+    var left = window.dancers[i].left;
+    var distance = this.getDistance(top,left);
+    if(this.closest.length !== 3 || distance < this.closest[0]){
+      //closest is an array of the closest node = [distanceToNode, top abs pos, left abs pos]
+      this.closest = [distance, top, left];
     }
   }
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
@@ -26,5 +25,42 @@ BouncyDancer.prototype.step = function(){
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.animate({top:"-=70"},this.timeBetweenSteps).animate({top:"+=70"},this.timeBetweenSteps);
+  if(this.closest !== undefined && this.closest.length === 3){
+    var topDistance = Math.abs(this.top - this.closest[1])/3;
+    var leftDistance = Math.abs(this.left - this.closest[2])/3;
+    var plus = "+=";
+    var minus = "-=";
+
+  if(this.top < this.closest[1]){
+    var topUp = plus;
+    var topDown = minus;
+  }else{
+    var topUp = minus;
+    var topDown = plus;
+  }
+  if(this.left < this.closest[2]){
+    var leftLeft = plus;
+    var leftRight = minus;
+  }else{
+    var leftLeft = minus;
+    var leftRight = plus;
+  }
+  this.$node.animate({
+
+    top:topUp + topDistance,
+
+    left:leftLeft + leftDistance
+
+  },this.timeBetweenSteps).animate({
+
+    top:topDown + topDistance,
+
+    left:leftRight + leftDistance
+
+  },this.timeBetweenSteps);
+
+}else{
+  this.$node.animate({top:'-=70'},this.timeBetweenSteps).animate({top:'+=70'},this.timeBetweenSteps);
+}
 };
+

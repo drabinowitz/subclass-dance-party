@@ -3,6 +3,7 @@ describe("bouncyDancer", function() {
   var bouncyDancer;
   var timeBetweenSteps = 100;
   var clock;
+  window.dancers = [];
 
   beforeEach(function() {
     clock = sinon.useFakeTimers();

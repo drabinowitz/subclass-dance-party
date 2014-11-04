@@ -27,6 +27,8 @@ body, a:link, a:visited, a:active{
   background:red;
 }
 .bouncy-dancer{
+  border: none;
+  border-radius: 5px;
   position:absolute;
   background-image:url('http://i.imgur.com/Q7st1M0.jpg');
   width:38px;
