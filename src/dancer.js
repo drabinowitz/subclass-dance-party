@@ -36,7 +36,5 @@ Dancer.prototype.setPosition = function(top, left){
 };
 
 Dancer.prototype.lineUp = function(top){
-  this.$node.addClass('dancer-lineup');
-  this.setPosition(top, 0);
-  this.$node.removeClass('dancer-lineup');
+  this.$node.animate({top:top, left:'0'},this.timeBetweenSteps/3);
 }

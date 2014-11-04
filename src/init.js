@@ -2,7 +2,7 @@ $(document).ready(function(){
   window.dancers = [];
   $(".lineupDancerButton").on("click", function(event){
     for(var i = 0; i < window.dancers.length; i++){
-      window.dancers[i].lineUp(i * 20);
+      window.dancers[i].lineUp(i * 70);
     }
   });
   $(".addDancerButton").on("click", function(event){
@@ -27,8 +27,8 @@ $(document).ready(function(){
     // make a dancer with a random position
 
     var dancer = new DancerConstructor(
-      Math.min($('body').height()-50, Math.max(50, $("body").height() * Math.random())),
-      Math.min($('body').width()-50, Math.max(50, $("body").width() * Math.random())),
+      Math.min($('body').height()-100, Math.max(100, $("body").height() * Math.random())),
+      Math.min($('body').width()-100, Math.max(100, $("body").width() * Math.random())),
       Math.random() * 1000
     );
 

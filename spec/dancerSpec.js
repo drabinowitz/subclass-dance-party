@@ -13,6 +13,10 @@ describe("Dancer", function() {
     expect(dancer.$node).to.be.an.instanceof(jQuery);
   });
 
+  it("should set position correctly", function(){
+    expect(dancer.$node.css('left')).to.be.equal('20px');
+  });
+
   describe("step", function(){
     it("should call step at least once per second", function(){
       sinon.spy(dancer, "step");
