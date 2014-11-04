@@ -36,5 +36,14 @@ $(document).ready(function(){
 
     $('body').append(dancer.$node);
   });
+  
+  $("body").on("mouseover", '.blinky-dancer',function(event){
+    $(event.target).addClass('blinky-dancer-hover');
+  });
+
+  $("body").on("mouseout", '.blinky-dancer',function(event){
+    $(event.target).removeClass('blinky-dancer-hover');
+  }); 
+
 });
 
