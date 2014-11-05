@@ -13,11 +13,24 @@
     <audio id="audio-track" controls>
       <source src="http://upload.wikimedia.org/wikipedia/en/4/45/ACDC_-_Back_In_Black-sample.ogg" type="audio/ogg">
     </audio>
+    <div class="overlay">
+      <select class='dancer-select'>
+        <option value="BlinkyDancer">blinky dancer</option>
+        <option value="BouncyDancer">bouncy dancer</option>
+        <option value="ShrinkyDancer">shrinky dancer</option>
+      </select> 
+      <select class='dancer-image-select'>
+        <option value="mel-dancer">mel gibson</option>
+        <option value="cat-dancer">nyan cat</option>
+      </select>
+      <input type="submit" value="Submit" class="create-custom-dancer"> 
+    </div>
     <div class="topbar">
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BouncyDancer">add a bouncy dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="ShrinkyDancer">add a shrinky dancer</a>
+      <a href="#" class="customDancerButton">custom dancer</a>
       <a href="#" class="lineupDancerButton">lineup dancers</a>
     </div>
     <div class="dance-floor df1">      

@@ -15,5 +15,5 @@ ShrinkyDancer.prototype.step = function(){
   // toggle() is a jQuery method to show/hide the <span> tag.
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
-  this.$node.animate({'height':10, 'width':10},this.timeBetweenSteps).animate({'height':0, 'width':0},this.timeBetweenSteps);
+  this.$node.animate({'height':'+=50', 'width':'+=50'},this.timeBetweenSteps).animate({'height':'-=50', 'width':'-=50'},this.timeBetweenSteps);
 };

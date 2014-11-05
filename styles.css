@@ -18,6 +18,18 @@ body, a:link, a:visited, a:active{
   padding:5px 12px;
   float:right;
 }
+.overlay{
+  padding-top:25%; 
+  padding-left:45%;
+  background:rgba(128, 128, 128, 0.5);
+  height:100%;
+  width:100%;
+  position:absolute;
+  left: 0;
+  top:0;
+  display:none;
+  z-index:5;
+}
 .topbar{
   height:32px;
   background-color: #555;
@@ -51,7 +63,7 @@ body, a:link, a:visited, a:active{
 .df2 .dancer{
   box-shadow: -10px -10px 5px pink;
 }
-.bouncy-dancer{
+.bouncy-dancer,.dance-floor .dancer.cat-dancer,.dance-floor .dancer.mel-dancer{
   border: none;
   border-radius: 5px;
   position:absolute;
@@ -64,5 +76,15 @@ body, a:link, a:visited, a:active{
   background:blue;
 }
 .shrinky-dancer{
+  height: 0;
+  width: 0;
   transition: background 2s, border 2s;
+}
+.dance-floor .dancer.cat-dancer{
+  background-image: url('http://i.imgur.com/llP2VZr.gif');
+  height:35px;
+  width:50px;
+}
+.dance-floor .dancer.mel-dancer{
+  background-image:url('http://i.imgur.com/Q7st1M0.jpg');
 }

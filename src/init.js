@@ -55,7 +55,32 @@ $(document).ready(function(){
   $("body").on("mouseout", '.blinky-dancer, .shrinky-dancer',function(event){
     $(event.target).removeClass('blinky-dancer-hover');
   }); 
+  $(".customDancerButton").on("click", function(event){
+    $('.overlay').toggle();
+  });
+  $('.create-custom-dancer').on("click",function(event){
+    var overlay = $(event.target).closest('.overlay');
+    var dancer  = overlay.find('.dancer-select').val();
+    var dancerImage = overlay.find('.dancer-image-select').val();
+    var DancerConstructor = window[dancer];
 
+    var dancer = new DancerConstructor(
+      Math.min($(window.dancefloor).height()-100, Math.max(100, $(window.dancefloor).height() * Math.random())),
+      Math.min($(window.dancefloor).width()-100, Math.max(100, $(window.dancefloor).width() * Math.random())),
+      Math.random() * 1000,
+      window.dancefloor
+    );
+    dancer.$node.addClass(dancerImage);
+    window.dancers.push(dancer);
+
+    $(window.dancefloor).append(dancer.$node);
+    if(window.dancefloor === '.df1'){
+      window.dancefloor = '.df2';
+    }else{
+      window.dancefloor = '.df1';
+    }
+    $('.overlay').toggle();
+  });
 
 });
 
