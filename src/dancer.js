@@ -45,7 +45,7 @@ Dancer.prototype.lineUp = function(top, left){
   top = top || '0';
   left = left || '0';
   this.$node.finish();
-  this.$node.animate({top:top, left:left},this.timeBetweenSteps * 2);
+  this.$node.animate({top:top, left:left},1000).delay(2000).animate({left:left+3000},5000);
 }
 
 Dancer.prototype.getDistance = function(top, left){
