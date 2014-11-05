@@ -1,9 +1,13 @@
 $(document).ready(function(){
+  var vid = document.getElementById('audio-track');
+  vid.loop = true;
+  vid.autoplay = true;
+  vid.load();
   window.dancefloor = '.df1';
   window.dancers = [];
   $(".lineupDancerButton").on("click", function(event){
     for(var i = 0; i < window.dancers.length; i++){
-      window.dancers[i].lineUp('0', i * 70);
+      window.dancers[i].lineUp('0', i * 30);
     }
   });
   $(".addDancerButton").on("click", function(event){
